@@ -34,6 +34,11 @@ with open(csv_filename, mode='w', newline='', encoding='utf-8') as csv_file:
                     title_content = tag['content']
                     break
 
+            price_content = ''
+            for tag in meta_tags_price:
+                if 'content' in tag.attrs:
+                    price_content = tag['content']
+                    break
 
             csv_writer.writerow([url, title_content, price_content])
             print(f"Scraped data from {url}")
